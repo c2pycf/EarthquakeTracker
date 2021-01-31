@@ -77,6 +77,9 @@ class MainActivity : AppCompatActivity() {
             setTransition(TRANSIT_FRAGMENT_FADE)
             addToBackStack(EarthquakeSpotMapFragment.TAG)
         }
+
+        action_bar.setExpanded(true, false)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
