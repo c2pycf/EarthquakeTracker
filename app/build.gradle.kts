@@ -7,8 +7,6 @@ plugins {
     id("kotlin-android-extensions")
 }
 
-val mapKey: String = gradleLocalProperties(rootDir).getProperty("MAPS_API_KEY")
-
 android {
     compileSdkVersion(Versions.compileSdkVersion)
     buildToolsVersion(Versions.buildTools)
@@ -21,14 +19,6 @@ android {
         versionName = Versions.versionName
 
         testInstrumentationRunner = Tests.testInstrumentationRunner
-
-
-//        if (rootProject.file("local.properties").exists()) {
-//            properties.load(rootProject.file("local.properties").newDataInputStream())
-//        }
-
-        //manifestPlaceholders["mapsApiKey"] = mapKey
-        //manifestPlaceholders = [ mapsApiKey : properties.getProperty("MAPS_API_KEY", "") ]
     }
 
     buildTypes {
