@@ -108,6 +108,7 @@ object Tests {
         const val mokk = "1.10.5"
         const val coroutine = "1.4.2"
         const val fragment = "1.2.5"
+        const val robolectric = "4.4"
     }
 
     const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
@@ -115,13 +116,6 @@ object Tests {
     const val junit = "junit:junit:${Versions.junit4}"
     const val mockk = "io.mockk:mockk:${Versions.mokk}"
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutine}"
+    const val robolectric = "org.robolectric:robolectric:${Versions.robolectric}"
 
-}
-
-object Google {
-    object Versions {
-
-    }
-
-    const val map = ""
 }

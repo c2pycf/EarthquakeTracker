@@ -75,9 +75,9 @@ class EarthquakeListViewModelTest {
     fun `GIVEN service return success THEN verify the notification should not be updated`() =
 
         runBlocking {
-            val testUser = EarthquakeSpot("", 0f, 0f, "us", "", 0f, 0f)
+            val testEarthquake = EarthquakeSpot("", 0f, 0f, "us", "", 0f, 0f)
             every { testEarthquakeRepository.earthquakeListLiveData.observeForever(any()) } answers {
-                (firstArg() as Observer<List<EarthquakeSpot>>).onChanged(listOf(testUser))
+                (firstArg() as Observer<List<EarthquakeSpot>>).onChanged(listOf(testEarthquake))
                 nothing
             }
             coEvery {

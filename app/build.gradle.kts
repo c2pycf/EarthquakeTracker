@@ -103,6 +103,7 @@ android {
         testImplementation(Tests.mockito)
         testImplementation(Tests.mockk)
         testImplementation(Tests.coroutines)
+        testImplementation(Tests.robolectric)
 
 
         //UI test
