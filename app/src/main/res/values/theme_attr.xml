@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="appbarBackgroundBrand" format="reference"/>
+    <attr name="brandColor" format="reference"/>
+    <attr name="brandColorVariant" format="reference" />
+    <attr name="brandColorSubtle" format="reference" />
+    <attr name="accentColor" format="reference"/>
+    <attr name="accentColorVariant" format="reference" />
+    <attr name="accentColorSubtle" format="reference" />
+    <attr name="warningColor" format="reference"/>
+    <attr name="warningColorVariant" format="reference" />
+    <attr name="warningColorSubtle" format="reference" />
+</resources>

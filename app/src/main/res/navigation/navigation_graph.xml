@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_graph"
+    app:startDestination="@id/earthquakeSpotListFragment">
+
+    <fragment
+        android:id="@+id/earthquakeSpotListFragment"
+        android:name="com.fred.earthquaketracker.features.home.ui.EarthquakeSpotListFragment"
+        android:label="EarthquakeSpotListFragment" />
+
+    <fragment
+        android:id="@+id/earthquakeSpotMapFragment"
+        android:name="com.fred.earthquaketracker.features.home.ui.EarthquakeSpotMapFragment"
+        android:label="EarthquakeSpotMapFragment" />
+</navigation>

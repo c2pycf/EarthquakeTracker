@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EarthquakeTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">?brandColor</item>
+        <item name="colorPrimaryVariant">?brandColorVariant</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">?accentColor</item>
+        <item name="colorSecondaryVariant">?accentColorVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.EarthquakeTracker.Base">
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="appbarBackgroundBrand">?colorPrimary</item>
+
+        <item name="brandColor">@color/brand_800</item>
+        <item name="brandColorVariant">@color/brand_900</item>
+        <item name="brandColorSubtle">@color/brand_200</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="accentColor">@color/accent_800</item>
+        <item name="accentColorVariant">@color/accent_900</item>
+        <item name="accentColorSubtle">@color/accent_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="warningColor">@color/red_800</item>
+        <item name="warningColorVariant">@color/red_900</item>
+        <item name="warningColorSubtle">@color/red_200</item>
+
+
+    </style>
+
+    <style name="ThemeOverlay.AppCompat.ActionBar.Light" >
+        <item name="colorControlNormal">@color/white</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_200">#FF60ad5e</color>
+    <color name="brand_800">#FF2e7d32</color>
+    <color name="brand_900">#FF005005</color>
+    <color name="accent_200">#FF4fb3bf</color>
+    <color name="accent_800">#FF00695c</color>
+    <color name="accent_900">#FF003d33</color>
+    <color name="red_200">#FFf05545</color>
+    <color name="red_800">#FFb71c1c</color>
+    <color name="red_900">#FF7f0000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="elevatedSurface2dp">#121212</color>
+    <color name="elevatedSurface4dp">#171717</color>
+    <color name="elevatedSurface6dp">#1c1c1c</color>
+    <color name="elevatedSurface8dp">#1f1f1f</color>
+    <color name="elevatedSurface12dp">#242424</color>
+    <color name="elevatedSurface16dp">#262626</color>
+    <color name="elevatedSurface24dp">#292929</color>
+
+</resources>

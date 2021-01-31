@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/radius_8"
+    app:cardElevation="@dimen/elevation_2"
+    app:strokeWidth="@dimen/control_width">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="noHideDescendants"
+        android:padding="@dimen/padding_16">
+
+        <ImageView
+            android:id="@+id/spot_icon"
+            android:layout_width="@dimen/icon_inline"
+            android:layout_height="@dimen/icon_inline"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_earthquake"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?colorOnSurface" />
+
+        <TextView
+            android:id="@+id/magnitude_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/spot_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/spot_icon"
+            tools:text="@string/earthquake_magnitude_string" />
+
+        <ImageView
+            android:importantForAccessibility="no"
+            android:id="@+id/warning_iv"
+            android:layout_width="@dimen/icon_inline"
+            android:layout_height="@dimen/icon_inline"
+            app:layout_constraintStart_toEndOf="@id/magnitude_tv"
+            app:layout_constraintBottom_toBottomOf="@id/magnitude_tv"
+            android:layout_marginStart="@dimen/space_8"
+            android:visibility="gone"
+            app:tint="?colorError"
+            android:src="@drawable/ic_warning"/>
+
+        <ImageView
+            android:id="@+id/datetime_icon"
+            android:layout_width="@dimen/icon_inline"
+            android:layout_height="@dimen/icon_inline"
+            android:layout_marginTop="@dimen/space_8"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spot_icon" />
+
+        <TextView
+            android:id="@+id/datetime_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/datetime_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/datetime_icon"
+            tools:text="2011-03-11 04:46:23" />
+
+        <ImageView
+            android:id="@+id/location_icon"
+            android:layout_width="@dimen/icon_inline"
+            android:layout_height="@dimen/icon_inline"
+            android:importantForAccessibility="no"
+            android:src="@drawable/icon_location"
+            app:layout_constraintBottom_toBottomOf="@id/lat_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lng_tv" />
+
+        <TextView
+            android:id="@+id/lng_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/location_icon"
+            app:layout_constraintTop_toBottomOf="@id/datetime_tv"
+            tools:text="@string/earthquake_lng_string" />
+
+        <TextView
+            android:id="@+id/lat_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_8"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintStart_toStartOf="@id/lng_tv"
+            app:layout_constraintTop_toBottomOf="@id/lng_tv"
+            tools:text="@string/earthquake_lat_string" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

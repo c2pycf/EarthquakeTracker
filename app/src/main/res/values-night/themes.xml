@@ -1,0 +1,23 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.EarthquakeTracker.Base" >
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSurface</item>
+        <item name="appbarBackgroundBrand">@color/elevatedSurface8dp</item>
+        <item name="colorSurface">@color/black</item>
+
+        <item name="brandColor">@color/brand_200</item>
+        <item name="brandColorVariant">@color/brand_800</item>
+        <item name="brandColorSubtle">@color/brand_900</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <item name="accentColor">@color/accent_200</item>
+        <item name="accentColorVariant">@color/accent_200</item>
+        <item name="accentColorSubtle">@color/accent_800</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="warningColor">@color/red_200</item>
+        <item name="warningColorVariant">@color/red_800</item>
+        <item name="warningColorSubtle">@color/red_900</item>
+    </style>
+</resources>

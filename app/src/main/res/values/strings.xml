@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EarthquakeTracker</string>
+    <string name="earthquake_list_title">Earthquake Spots</string>
+    <string name="earthquake_lng_string">"lng: %1f"</string>
+    <string name="earthquake_lat_string">"lat: %1f "</string>
+    <string name="earthquake_spot_item_ada">"Earthquake happened at location with latitude of %1f degree, latitude of %2f degree, magnitude of %3.1f, datetime at %s"</string>
+    <string name="earthquake_spot_item_emphasized_ada">"Warning! Earthquake happened at location with latitude of %1f degree, longitude of %2f degree, magnitude of %3.1f, datetime at %s"</string>
+    <string name="earthquake_magnitude_string">Magnitude: %.1f</string>
+    <string name="default_empty_list_string">Currently no item in the list, please refresh later.</string>
+    <string name="permission_error">Fail to request the PERMISSION</string>
+    <string name="map_marker_title">Earthquake at Lat: %1s, Lng: %2s</string>
+
+</resources>
