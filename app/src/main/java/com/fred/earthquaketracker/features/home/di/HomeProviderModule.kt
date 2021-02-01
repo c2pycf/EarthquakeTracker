@@ -41,12 +41,12 @@ internal abstract class HomeProviderModule {
     @Binds
     @IntoMap
     @ViewModelKey(EarthquakeListViewModel::class)
-    internal abstract fun provideEarthquakeListViewModel(userViewModel: EarthquakeListViewModel): ViewModel
+    internal abstract fun provideEarthquakeListViewModel(earthquakeListViewModel: EarthquakeListViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(EarthquakeSpotViewModel::class)
-    internal abstract fun provideEarthquakeSpotViewModel(userViewModel: EarthquakeSpotViewModel): ViewModel
+    internal abstract fun provideEarthquakeSpotViewModel(earthquakeSpotViewModel: EarthquakeSpotViewModel): ViewModel
 
     companion object {
         @Provides

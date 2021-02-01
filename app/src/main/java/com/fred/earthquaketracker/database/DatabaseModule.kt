@@ -34,6 +34,6 @@ import dagger.Provides
 class DatabaseModule {
 
     @Provides
-    fun provideUserDB(context: Context): EarthquakesDao = EarthquakesDatabase.getInstance(context).earthquakesDao
+    fun provideEarthquakesDB(context: Context): EarthquakesDao = EarthquakesDatabase.getInstance(context).earthquakesDao
 
 }
