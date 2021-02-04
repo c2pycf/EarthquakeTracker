@@ -26,7 +26,7 @@ package com.fred.earthquaketracker.features.home.di
 
 import androidx.lifecycle.ViewModel
 import com.fred.earthquaketracker.dagger.viewmodel.ViewModelKey
-import com.fred.earthquaketracker.features.home.repository.EarthquakeService
+import com.fred.earthquaketracker.features.home.repository.remote.EarthquakeService
 import com.fred.earthquaketracker.features.home.viewmodels.EarthquakeSpotViewModel
 import com.fred.earthquaketracker.features.home.viewmodels.EarthquakeListViewModel
 import dagger.Binds

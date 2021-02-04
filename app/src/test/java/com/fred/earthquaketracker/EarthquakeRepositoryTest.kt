@@ -33,7 +33,7 @@ import com.fred.earthquaketracker.features.home.models.EarthquakeResultModel
 import com.fred.earthquaketracker.features.home.models.EarthquakeSpotModel
 import com.fred.earthquaketracker.features.home.repository.EarthquakeRepository
 import com.fred.earthquaketracker.features.home.repository.EarthquakeResponse
-import com.fred.earthquaketracker.features.home.repository.EarthquakeService
+import com.fred.earthquaketracker.features.home.repository.remote.EarthquakeService
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.RelaxedMockK

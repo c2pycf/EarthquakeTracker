@@ -29,6 +29,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.fred.earthquaketracker.R
@@ -39,6 +40,8 @@ import com.google.android.material.card.MaterialCardView
 import kotlinx.android.synthetic.main.item_earthquake_spot.view.*
 import kotlinx.android.synthetic.main.item_earthquake_spot.view.warning_iv
 import kotlinx.android.synthetic.main.item_empty.view.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class EarthquakeSpotListAdapter(
     private val onClickListener: (EarthquakeSpotModel?) -> Unit
@@ -84,12 +87,17 @@ class EarthquakeSpotListAdapter(
     override fun getItemCount(): Int =
         if (earthquakeSpotList.isEmpty()) DEFAULT_LIST_SIZE else earthquakeSpotList.size
 
-    fun loadList(earthquakeSpots: List<EarthquakeSpotModel>) {
+    fun loadList(
+        earthquakeSpots: List<EarthquakeSpotModel>,
+        lifecycleScope: LifecycleCoroutineScope
+    ) {
         if (earthquakeSpotList.isEmpty()) notifyItemChanged(0)
         val diffCallback = EarthquakeSpotDiffCallback(this.earthquakeSpotList, earthquakeSpots)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        this.earthquakeSpotList.clear()
-        this.earthquakeSpotList.addAll(earthquakeSpots)
+        lifecycleScope.launch(Dispatchers.IO) {
+            this@EarthquakeSpotListAdapter.earthquakeSpotList.clear()
+            this@EarthquakeSpotListAdapter.earthquakeSpotList.addAll(earthquakeSpots)
+        }
         diffResult.dispatchUpdatesTo(this)
     }
 

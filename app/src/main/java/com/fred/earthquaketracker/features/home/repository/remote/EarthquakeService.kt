@@ -22,12 +22,9 @@
  * SOFTWARE.
  */
 
-package com.fred.earthquaketracker.features.home.repository
+package com.fred.earthquaketracker.features.home.repository.remote
 
 import com.fred.earthquaketracker.features.home.models.EarthquakeResultModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

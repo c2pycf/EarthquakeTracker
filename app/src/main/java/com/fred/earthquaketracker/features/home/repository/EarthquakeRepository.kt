@@ -29,6 +29,7 @@ import android.util.Log
 import androidx.annotation.WorkerThread
 import com.fred.earthquaketracker.database.earthquakes.EarthquakeSpot
 import com.fred.earthquaketracker.database.earthquakes.EarthquakesDao
+import com.fred.earthquaketracker.features.home.repository.remote.EarthquakeService
 import javax.inject.Inject
 
 

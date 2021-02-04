@@ -26,13 +26,13 @@ package com.fred.earthquaketracker.features.home.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.fred.earthquaketracker.R
 import com.fred.earthquaketracker.features.home.controller.MainActivity
 import com.fred.earthquaketracker.features.home.util.ItemLinearDecorator
@@ -42,6 +42,8 @@ import com.fred.earthquaketracker.features.home.viewmodels.HomeNavigationEvent
 import com.fred.earthquaketracker.features.home.views.EarthquakeSpotListAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_earthquake_spot_list.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class EarthquakeSpotListFragment : Fragment() {
@@ -89,10 +91,14 @@ class EarthquakeSpotListFragment : Fragment() {
         }
 
         viewModel.earthquakeListLiveData.observe(viewLifecycleOwner, {
-            it.map { earthquake ->
-                earthquake.toModel()
-            }.let { earthquakeModelList ->
-                adapter.loadList(earthquakeModelList)
+            viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+                withContext(Dispatchers.IO) {
+                    it.map { earthquake ->
+                        earthquake.toModel()
+                    }
+                }.let {
+                    adapter.loadList(it, viewLifecycleOwner.lifecycleScope)
+                }
             }
         })
 

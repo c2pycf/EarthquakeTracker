@@ -69,6 +69,7 @@ object AndroidX {
 
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+    const val liveDataExtension = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
 
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"

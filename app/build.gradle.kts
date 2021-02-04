@@ -79,6 +79,7 @@ android {
         implementation(AndroidX.swipeRefreshLayout)
 
         implementation(AndroidX.lifecycleExtension)
+        implementation(AndroidX.liveDataExtension)
         implementation(AndroidX.viewModel)
         implementation(AndroidX.activity)
         implementation(AndroidX.fragment)
