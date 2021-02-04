@@ -30,7 +30,11 @@
     <fragment
         android:id="@+id/earthquakeSpotListFragment"
         android:name="com.fred.earthquaketracker.features.home.ui.EarthquakeSpotListFragment"
-        android:label="EarthquakeSpotListFragment" />
+        android:label="EarthquakeSpotListFragment" >
+        <action
+            android:id="@+id/action_earthquakeSpotListFragment_to_earthquakeSpotMapFragment"
+            app:destination="@id/earthquakeSpotMapFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/earthquakeSpotMapFragment"

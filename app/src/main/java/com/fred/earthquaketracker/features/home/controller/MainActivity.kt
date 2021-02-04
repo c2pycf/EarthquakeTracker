@@ -35,10 +35,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.fred.earthquaketracker.MyApplication
 import com.fred.earthquaketracker.R
 import com.fred.earthquaketracker.features.home.di.HomeComponent
 import com.fred.earthquaketracker.features.home.ui.EarthquakeSpotListFragment
+import com.fred.earthquaketracker.features.home.ui.EarthquakeSpotListFragmentDirections
 import com.fred.earthquaketracker.features.home.ui.EarthquakeSpotMapFragment
 import com.fred.earthquaketracker.features.home.viewmodels.EarthquakeListViewModel
 import com.fred.earthquaketracker.features.home.viewmodels.HomeNavigationEvent
@@ -93,14 +95,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addEarthquakeSpotMapFragment() {
-        supportFragmentManager.commit {
-            add(
-                R.id.nav_host_fragment,
-                getEarthquakeSpotMapFragment()
-            )
-            setTransition(TRANSIT_FRAGMENT_FADE)
-            addToBackStack(EarthquakeSpotMapFragment.TAG)
-        }
+        val direction =
+            EarthquakeSpotListFragmentDirections.actionEarthquakeSpotListFragmentToEarthquakeSpotMapFragment()
+        findNavController(R.id.nav_host_fragment).navigate(direction)
 
         action_bar.setExpanded(true, false)
 
@@ -117,13 +114,6 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             viewModel.reloadEarthquakeList()
-
-            supportFragmentManager.commit {
-                add(
-                    R.id.nav_host_fragment,
-                    EarthquakeSpotListFragment()
-                )
-            }
         }
     }
 

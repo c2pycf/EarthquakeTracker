@@ -29,6 +29,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-android-extensions")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -89,7 +90,7 @@ android {
 
         //Google map
         implementation(Libraries.googleMap)
-        implementation (Libraries.googleMapKtx)
+        implementation(Libraries.googleMapKtx)
 
 
         //Material

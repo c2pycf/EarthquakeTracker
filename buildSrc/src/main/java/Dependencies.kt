@@ -86,6 +86,7 @@ object AndroidX {
 
     const val navigation = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val navigationSafeArg =  "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
 
     const val androidxTestCore = "androidx.test:core:${Versions.testCore}"
     const val testRunner = "androidx.test:runner:${Versions.testRunner}"
