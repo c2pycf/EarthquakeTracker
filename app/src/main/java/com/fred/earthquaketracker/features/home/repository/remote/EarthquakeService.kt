@@ -26,6 +26,7 @@ package com.fred.earthquaketracker.features.home.repository.remote
 
 import com.fred.earthquaketracker.features.home.models.EarthquakeResultModel
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -43,6 +44,16 @@ interface EarthquakeService {
         @Query(QUERY_WEST) west: Float,
         @Query(QUERY_USERNAME) username: String
     ): Call<EarthquakeResultModel>
+
+    @GET(EARTHQUAKES_JSON)
+    suspend fun getEarthquakeListSuspend(
+        @Query(QUERY_FORMATTED) format: Boolean,
+        @Query(QUERY_NORTH) north: Float,
+        @Query(QUERY_SOUTH) south: Float,
+        @Query(QUERY_EAST) east: Float,
+        @Query(QUERY_WEST) west: Float,
+        @Query(QUERY_USERNAME) username: String
+    ): Response<EarthquakeResultModel>
 
     companion object {
         private const val EARTHQUAKES_JSON =

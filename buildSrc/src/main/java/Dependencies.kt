@@ -110,7 +110,7 @@ object Libraries {
     object Versions {
         const val dagger = "2.30.1"
         const val gson = "2.8.5"
-        const val retrofit2 = "2.4.0"
+        const val retrofit2 = "2.9.0"
         const val material = "1.2.1"
         const val googleMap = "17.0.0"
         const val googleMapKtx = "2.0.0"

@@ -58,7 +58,7 @@ class EarthquakeListViewModel @Inject constructor(
      */
     @VisibleForTesting(otherwise = Modifier.PRIVATE)
     internal suspend fun fetchEarthquakeList() = withContext(Dispatchers.IO) {
-        when (val result = earthquakeRepository.refreshList(
+        when (val result = earthquakeRepository.refreshListSuspend(
             format = true,
             north = NORTH,
             south = SOUTH,

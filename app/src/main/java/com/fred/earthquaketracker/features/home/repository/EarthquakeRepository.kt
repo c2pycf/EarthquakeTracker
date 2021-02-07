@@ -30,6 +30,12 @@ import androidx.annotation.WorkerThread
 import com.fred.earthquaketracker.database.earthquakes.EarthquakeSpot
 import com.fred.earthquaketracker.database.earthquakes.EarthquakesDao
 import com.fred.earthquaketracker.features.home.repository.remote.EarthquakeService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
+import retrofit2.await
+import retrofit2.awaitResponse
 import javax.inject.Inject
 
 
@@ -42,6 +48,51 @@ class EarthquakeRepository @Inject constructor(
 ) {
 
     internal val earthquakeListLiveData = earthquakesDao.getAllEarthquakeSpotsLiveData
+
+    private suspend fun fetchList(
+        format: Boolean,
+        north: Float,
+        south: Float,
+        east: Float,
+        west: Float,
+        username: String
+    ) = withTimeout(5000) {
+        earthquakeService.getEarthquakeListSuspend(
+            format, north, south, east, west, username
+        )
+    }
+
+    suspend fun refreshListSuspend(
+        format: Boolean,
+        north: Float,
+        south: Float,
+        east: Float,
+        west: Float,
+        username: String
+    ) = withContext(Dispatchers.IO) {
+        try {
+            val result = fetchList(
+                format, north, south, east, west, username
+            )
+            if (result.isSuccessful) {
+                result.body()?.earthquakes?.mapIndexed { index, earthquakeSpotModel ->
+                    EarthquakeSpot.fromModel(
+                        id = index,
+                        earthquakeSpot = earthquakeSpotModel
+                    )
+                }?.onEach {
+                    earthquakesDao.insert(it)
+                }
+                return@withContext EarthquakeResponse.Success
+            } else {
+                return@withContext EarthquakeResponse.EarthquakeErrorResponse(result.message())
+            }
+        } catch (e: TimeoutCancellationException) {
+            return@withContext EarthquakeResponse.EarthquakeErrorResponse(e.message)
+        } catch (e: Exception) {
+            return@withContext EarthquakeResponse.EarthquakeErrorResponse(message = e.message)
+        }
+    }
 
     /**
      * Fetch earthquake list from service through worker thread

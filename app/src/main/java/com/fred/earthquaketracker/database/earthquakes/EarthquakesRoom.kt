@@ -56,7 +56,7 @@ data class EarthquakeSpot(
         )
 
     companion object {
-        fun fromModel(id:Int, earthquakeSpot: EarthquakeSpotModel): EarthquakeSpot =
+        fun fromModel(id: Int, earthquakeSpot: EarthquakeSpotModel): EarthquakeSpot =
             EarthquakeSpot(
                 datetime = earthquakeSpot.datetime,
                 depth = earthquakeSpot.depth,
@@ -83,6 +83,9 @@ interface EarthquakesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(earthquakeSpot: List<EarthquakeSpot>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(earthquakeSpot: EarthquakeSpot)
 }
 
 @Database(entities = [EarthquakeSpot::class], version = 2021013113, exportSchema = false)
