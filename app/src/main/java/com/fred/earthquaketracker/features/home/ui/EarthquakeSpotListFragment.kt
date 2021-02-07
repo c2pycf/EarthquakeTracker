@@ -83,6 +83,8 @@ class EarthquakeSpotListFragment : Fragment() {
             viewModel.loadEarthquakeList()
         }
 
+        earthquake_spots_recycler_view.itemAnimator = null
+
         val adapter = EarthquakeSpotListAdapter {
             it?.run {
                 spotViewModel.updateCurrentPickedLocation(this.lng, this.lat)

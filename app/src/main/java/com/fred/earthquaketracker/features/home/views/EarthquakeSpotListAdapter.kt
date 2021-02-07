@@ -42,6 +42,8 @@ import kotlinx.android.synthetic.main.item_earthquake_spot.view.warning_iv
 import kotlinx.android.synthetic.main.item_empty.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 class EarthquakeSpotListAdapter(
     private val onClickListener: (EarthquakeSpotModel?) -> Unit
@@ -91,12 +93,15 @@ class EarthquakeSpotListAdapter(
         earthquakeSpots: List<EarthquakeSpotModel>,
         lifecycleScope: LifecycleCoroutineScope
     ) {
-        if (earthquakeSpotList.isEmpty()) notifyItemChanged(0)
+        val mutex = Mutex()
+//        if (earthquakeSpotList.isEmpty()) notifyItemChanged(0)
         val diffCallback = EarthquakeSpotDiffCallback(this.earthquakeSpotList, earthquakeSpots)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         lifecycleScope.launch(Dispatchers.IO) {
-            this@EarthquakeSpotListAdapter.earthquakeSpotList.clear()
-            this@EarthquakeSpotListAdapter.earthquakeSpotList.addAll(earthquakeSpots)
+            mutex.withLock {
+                this@EarthquakeSpotListAdapter.earthquakeSpotList.clear()
+                this@EarthquakeSpotListAdapter.earthquakeSpotList.addAll(earthquakeSpots)
+            }
         }
         diffResult.dispatchUpdatesTo(this)
     }
