@@ -30,12 +30,17 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE
 import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.fred.earthquaketracker.MyApplication
 import com.fred.earthquaketracker.R
 import com.fred.earthquaketracker.features.home.di.HomeComponent
@@ -44,6 +49,7 @@ import com.fred.earthquaketracker.features.home.ui.EarthquakeSpotListFragmentDir
 import com.fred.earthquaketracker.features.home.ui.EarthquakeSpotMapFragment
 import com.fred.earthquaketracker.features.home.viewmodels.EarthquakeListViewModel
 import com.fred.earthquaketracker.features.home.viewmodels.HomeNavigationEvent
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -105,12 +111,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configureView(savedInstanceState: Bundle?) {
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
 
-        supportActionBar?.run {
-            title = earthquakeTitle
-            setDisplayHomeAsUpEnabled(false)
-        }
+        val host = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val controller = host.navController
+        val appConfiguration = AppBarConfiguration(navGraph = controller.graph)
+        findViewById<Toolbar>(R.id.toolbar).setupWithNavController(controller, appConfiguration)
 
         if (savedInstanceState == null) {
             viewModel.reloadEarthquakeList()
@@ -121,22 +127,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.findFragmentByTag(EarthquakeSpotMapFragment.TAG)
             ?: EarthquakeSpotMapFragment()
 
-    override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 1) {
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        } else {
-            supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        }
-        super.onBackPressed()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
-        android.R.id.home -> {
-            onBackPressed()
-            true
-        }
-        else -> super.onOptionsItemSelected(item)
-    }
 
     /**
      * Check when request permissions have returned
