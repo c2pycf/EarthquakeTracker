@@ -106,8 +106,6 @@ class MainActivity : AppCompatActivity() {
         findNavController(R.id.nav_host_fragment).navigate(direction)
 
         action_bar.setExpanded(true, false)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun configureView(savedInstanceState: Bundle?) {
